@@ -1,20 +1,35 @@
-input {
+.sexMain {
+    text-align: center;
+    margin: 10em 0 0;
+}
+
+.sexHeading {
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 2em;
+}
+
+.sexForm { 
+    margin-bottom: 10em;        
+}
+
+.sexForm input {
     opacity: 0;
     position: absolute;   
 }
 
-input, label {
+.sexForm input, .sexForm label {
     display: inline-block;
     vertical-align: middle;
     margin: 5px 20px;
     cursor: pointer;
 }
 
-label {
+.sexForm label {
     position: relative;
 }
 
-input + label:before {
+.sexForm input + label:before {
     content: '';
     background: #fff;
     border: 2px solid black;
@@ -29,15 +44,15 @@ input + label:before {
 
 
 
-input + label:before {
+.sexForm input + label:before {
     border-radius: 50%;
 }
 
-input:checked + label:before {
+.sexForm input:checked + label:before {
     content: "\2714";
     color: black;
 }
 
-input:focus + label {
+.sexForm input:focus + label {
   outline: 1px solid #ddd; 
 }

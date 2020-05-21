@@ -12,22 +12,10 @@ const useStyles = makeStyles(theme => ({
         fontStyle: "italic",
         width: "164px",
         fontSize: "12px"
-    },
-    sexMain: {
-        textAlign: "center",
-        margin: "10em 0 0"
-    },
-    heading: {
-        fontSize: "30px",
-        fontWeight: "300",
-        marginBottom: "2em"
-    },
-    form: { 
-        marginBottom: "10em"        
     }
 }));
 
-export default function BeforeStart(props) {
+export default function Sex(props) {
     
     const click = () => {
         props.changePage(4);
@@ -35,9 +23,9 @@ export default function BeforeStart(props) {
 
     const classes = useStyles();
     return(
-        <div className={classes.sexMain}>
-            <h3 className={classes.heading}>Do you identify as</h3>
-            <div className={classes.form}>
+        <div className="sexMain">
+            <h3 className="sexHeading">Do you identify as</h3>
+            <div className="sexForm">
                 <input type="radio" id="male" name="gender" value="male"/>
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female"/>
@@ -49,16 +37,3 @@ export default function BeforeStart(props) {
         </div>
     )
 }
-
-const Input = styled.input`
-content: '';
-background-color: white;
-border: 2px solid #ddd;
-display: inline-block;
-vertical-align: middle;
-width: 20px;
-height: 20px;
-padding: 2px;
-margin-right: 10px;
-text-align: center;
-`;

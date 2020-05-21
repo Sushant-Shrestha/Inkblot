@@ -1,0 +1,19 @@
+.ageInput {
+    margin-bottom: 10em;
+    border: none;
+    border-bottom: 2px solid #000000;
+    width: 51px;
+    text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.ageInput::-webkit-inner-spin-button,
+.ageInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.ageInput {
+    -moz-appearance: textfield;
+  }

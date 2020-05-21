@@ -27,10 +27,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function BeforeStart() {
+export default function BeforeStart(props) {
     
     const click = () => {
-        this.props.changePage(3);
+        props.changePage(3);
     }
 
     const classes = useStyles();
