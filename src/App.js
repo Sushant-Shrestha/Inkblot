@@ -36,15 +36,17 @@ class App extends React.Component {
            <Sex changePage={this.changePage}/>,
            <Age changePage={this.changePage}/>,
            <Career changePage={this.changePage}/>,
-           <Webcam changePage={this.changePage} webcamControl={this.webcamControl}/>
+           <Webcam changePage={this.changePage} webcamControl={this.webcamControl}/>,
+           <Inkblot changePage={this.changePage}/>,
+           <End changePage={this.changePage}/>,
           ]
 
   render() {
     return (
       <div className="App">
         <Header />
-        {/* {this.pages[this.state.pageNum]} */}
-        <Inkblot/>
+        {this.pages[this.state.pageNum]}
+        
       </div>
     );
   }

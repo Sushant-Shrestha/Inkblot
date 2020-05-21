@@ -30,7 +30,7 @@ class Inkblot extends React.Component {
     }
 
     click = () => {
-
+        this.props.changePage(8);
     }
 
     render(){
