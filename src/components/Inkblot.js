@@ -56,7 +56,7 @@ class Inkblot extends React.Component {
       super(props);
 
       this.state = {
-          imgID: 10,
+          imgID: 1,
           imageRotation: 0
       }
     }
