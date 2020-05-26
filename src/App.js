@@ -45,8 +45,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        {this.pages[this.state.pageNum]}
-        
+        {/* {this.pages[this.state.pageNum]} */}
+        <Inkblot/>
       </div>
     );
   }
