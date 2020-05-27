@@ -5,7 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import PrintOutlinedIcon from '@material-ui/icons/PrintOutlined';
 import CreateIcon from '@material-ui/icons/Create';
 import RotateIcon from '@material-ui/icons/Autorenew';
-
+import Script from 'react-load-script';
+// require ('script!./webgazer/webgazer.js');
 
 const useStyles = theme => ({
     button: {
@@ -56,7 +57,7 @@ class Inkblot extends React.Component {
       super(props);
 
       this.state = {
-          imgID: 10,
+          imgID: 1,
           imageRotation: 0
       }
     }
@@ -81,11 +82,34 @@ class Inkblot extends React.Component {
         }
     }
 
+    handleScriptCreate() {
+        console.log("create");
+    }
+      
+    handleScriptError() {
+        console.log("error");
+    }
+      
+    handleScriptLoad() {
+        console.log("loaded");
+    }
+
+
     render(){
         const {classes} = this.props;
 
         return(
             <div className={classes.main}>
+                
+                {/* <Script
+                    url="./webgazer/webgazer"
+                    onCreate={this.handleScriptCreate.bind(this)}
+                    onError={this.handleScriptError.bind(this)}
+                    onLoad={this.handleScriptLoad.bind(this)}
+                >
+            
+                     
+                </Script>                 */}
                 <div className={classes.outerRotate}>
                     <figure className={classes.innerRotate}>
                         <img style={{transform: `rotate(${this.state.imageRotation}deg)`}} className={classes.image} src={require(`./img/blot${this.state.imgID}.jpg`)}/>
