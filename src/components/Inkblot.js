@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PrintOutlinedIcon from '@material-ui/icons/PrintOutlined';
 import CreateIcon from '@material-ui/icons/Create';
 import RotateIcon from '@material-ui/icons/Autorenew';
-import Script from 'react-load-script';
+//import Script from 'react-load-script';
 // require ('script!./webgazer/webgazer.js');git 
 
 const useStyles = theme => ({
