@@ -9,6 +9,7 @@ const pool = new Pool({
   }
 });
 
+sadasda
 router.get('/', (req, resp) => {
     resp.json({"test": "random msg"});
 });
