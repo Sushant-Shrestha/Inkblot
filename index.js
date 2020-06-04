@@ -37,6 +37,7 @@ const routes = require('./handlers/router.js');
 app.use('/', routes);
 
 //serve anything else to react's index.html
+app.use(express.static('client/build'));
 app.get('*', (req, resp) => {
   resp.sendFile(path.join(__dirname+'/client/build/index.html'));
 });

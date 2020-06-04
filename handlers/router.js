@@ -2,15 +2,15 @@ const express = require('express');
 const DataModel = require('../models/UserData.js');
 const router = express.Router();
 
-router.get('/', (req, resp) => {
-    DataModel.find({}, (err, data) => {
-        if(err) {
-            resp.json({ error: "Cannot connect to the server"});
-        } else {
-            resp.json(data);
-        }
-    });
-});
+// router.get('/', (req, resp) => {
+//     DataModel.find({}, (err, data) => {
+//         if(err) {
+//             resp.json({ error: "Cannot connect to the server"});
+//         } else {
+//             resp.json(data);
+//         }
+//     });
+// });
 
 router.post('/', (req, resp) => {
     const newData = {
