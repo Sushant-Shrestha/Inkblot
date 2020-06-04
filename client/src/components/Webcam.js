@@ -42,11 +42,11 @@ export default function Webcam(props) {
     }
     
     const dontAccept = () => {
-        props.webcamControl(false);
+        props.saveData('webcam', false, 7);
     }
 
     const accept = () => {
-        props.webcamControl(true);
+        props.saveData('webcam', true, 7);
     }
 
     const classes = useStyles();

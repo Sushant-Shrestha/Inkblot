@@ -12,6 +12,7 @@ import Webcam from './components/Webcam';
 import End from './components/End';
 import Inkblot from './components/Inkblot';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 
 
 
@@ -21,13 +22,12 @@ class App extends React.Component {
 
     this.state ={
       pageNum: 0,
-      webcam: false,
       currInkblot: 1,
       userData: {
         sex: '',
         age: '',
         career: '',
-        webcam: '',
+        webcam: false,
         one: '',
         two: '',
         three: '',
@@ -46,9 +46,9 @@ class App extends React.Component {
     this.setState({pageNum: num});
   }
 
-  webcamControl = (boolean) => {
-    this.setState({webcam: boolean});
-  }
+  // webcamControl = (boolean) => {
+  //   this.setState({webcam: boolean});
+  // }
 
   changeInkblot = (attribute, data, picNum) => {
     this.setState({ userData: {
@@ -67,7 +67,16 @@ class App extends React.Component {
   }
 
   test = () => {
-    console.dir(this.state.userData);
+    // console.dir(this.state.userData);
+    const { userData } = this.state;
+
+    axios({
+      url: '/',
+      method: 'POST',
+      data: { userData}
+    })
+      .then(resp => console.log(resp))
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -78,7 +87,7 @@ class App extends React.Component {
         <Sex changePage={this.changePage} saveData={this.saveData}/>,
         <Age changePage={this.changePage} saveData={this.saveData}/>,
         <Career changePage={this.changePage} saveData={this.saveData}/>,
-        <Webcam changePage={this.changePage} webcamControl={this.webcamControl} saveData={this.saveData}/>,
+        <Webcam changePage={this.changePage} saveData={this.saveData}/>,
         <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/>,
         <End test={this.test}/>
      ];
