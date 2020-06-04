@@ -33,10 +33,10 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function Webcam(props) {
+export default function End(props) {
     
     const aboutPage = () => {
-        props.changePage(7);
+        props.test();
     }
 
     const classes = useStyles();

@@ -29,15 +29,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function Career(props) {
     
+    var career;
+
+    const handleChange = (e) => {
+        career = e.target.value;
+    }
+ 
     const click = () => {
-        props.changePage(6);
+        props.saveData('career', career, 6);
+        //props.changePage(6);
     }
 
     const classes = useStyles();
     return(
         <div className={classes.main}>
             <h3 className={classes.heading}>What career field are you in?</h3>
-            <select name="career" id="career" className={classes.careerOption}>
+            <select name="career" id="career" className={classes.careerOption} onChange={handleChange}>
                 <option selected>Select one...</option> 
                 <option value="aviation">Aviation</option> 
                 <option value="arts">Arts</option> 

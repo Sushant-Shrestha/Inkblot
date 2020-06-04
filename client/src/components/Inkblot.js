@@ -55,18 +55,25 @@ class Inkblot extends React.Component {
       super(props);
 
       this.state = {
-          imgID: 1,
           imageRotation: 0
       }
     }
 
-    click = () => {
-        let temp = this.state.imgID;
+    inkblot = [ 'zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+    data;
+    handleChange = (e) => {
+        this.data = e.target.value;
+    }
+    
 
-        if(temp <=10) {
-        this.setState({imgID: temp +1});
+    click = () => {
+        let temp = this.props.currInkblot;
+
+        if(temp < 10) {        
+            this.props.changeInkblot(this.inkblot[this.props.currInkblot], this.data,temp+1);
         } else {
-            this.props.changePage(8);
+            this.props.saveData(this.inkblot[this.props.currInkblot], this.data, 8);
+            //this.props.changePage(8);
         }        
     }
 
@@ -80,17 +87,17 @@ class Inkblot extends React.Component {
         }
     }
 
-    handleScriptCreate() {
-        console.log("create");
-    }
+    // handleScriptCreate() {
+    //     console.log("create");
+    // }
       
-    handleScriptError() {
-        console.log("error");
-    }
+    // handleScriptError() {
+    //     console.log("error");
+    // }
       
-    handleScriptLoad() {
-        console.log("loaded");
-    }
+    // handleScriptLoad() {
+    //     console.log("loaded");
+    // }
 
 
     render(){
@@ -110,13 +117,13 @@ class Inkblot extends React.Component {
                 </Script>                 */}
                 <div className={classes.outerRotate}>
                     <figure className={classes.innerRotate}>
-                        <img style={{transform: `rotate(${this.state.imageRotation}deg)`}} className={classes.image} src={require(`./img/blot${this.state.imgID}.jpg`)}/>
+                        <img style={{transform: `rotate(${this.state.imageRotation}deg)`}} className={classes.image} src={require(`./img/blot${this.props.currInkblot}.jpg`)}/>
                         
                     </figure>
                 </div>
                 <div className={classes.userInput}>
                     {/* User input */}
-                    <input className={classes.input} type="text" id="overall" name="overall" placeholder="What do you see?"/>
+                    <input onChange={this.handleChange} className={classes.input} type="text" id="overall" name="overall" placeholder="What do you see?"/>
                     <CreateIcon /> <PrintOutlinedIcon/> <RotateIcon onClick={this.rotate}/>
                 </div>
                 <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={this.click}>Continue</Button>

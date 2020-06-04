@@ -11,6 +11,9 @@ import Career from './components/Career';
 import Webcam from './components/Webcam';
 import End from './components/End';
 import Inkblot from './components/Inkblot';
+import { makeStyles } from '@material-ui/core/styles';
+
+
 
 class App extends React.Component {
   constructor(props){
@@ -18,7 +21,24 @@ class App extends React.Component {
 
     this.state ={
       pageNum: 0,
-      webcam: false
+      webcam: false,
+      currInkblot: 1,
+      userData: {
+        sex: '',
+        age: '',
+        career: '',
+        webcam: '',
+        one: '',
+        two: '',
+        three: '',
+        four: '',
+        five: '',
+        six: '',
+        seven: '',
+        eight: '',
+        nine: '',
+        ten: ''
+      }
     }
   }
 
@@ -27,26 +47,46 @@ class App extends React.Component {
   }
 
   webcamControl = (boolean) => {
-    this.setState({webcam: boolean})
+    this.setState({webcam: boolean});
   }
 
-  pages = [<HomePage changePage={this.changePage}/>,
-           <Start changePage={this.changePage}/>, 
-           <BeforeStart changePage={this.changePage}/>,
-           <Sex changePage={this.changePage}/>,
-           <Age changePage={this.changePage}/>,
-           <Career changePage={this.changePage}/>,
-           <Webcam changePage={this.changePage} webcamControl={this.webcamControl}/>,
-           <Inkblot changePage={this.changePage}/>,
-           <End changePage={this.changePage}/>,
-          ]
+  changeInkblot = (attribute, data, picNum) => {
+    this.setState({ userData: {
+      ...this.state.userData, [attribute]: data
+    }}, () => {this.setState({currInkblot: picNum})});
+    
+  }
+
+  saveData = (attribute, data, nextPage) => {
+    //let {userData} = this.state;
+    this.setState({ userData: {
+      ...this.state.userData, [attribute]: data
+    }}, () => {this.changePage(nextPage)});
+
+    //this.setState({ [attribute] : data}, () => {console.log(this.state.age)} );
+  }
+
+  test = () => {
+    console.dir(this.state.userData);
+  }
 
   render() {
+    const pages = [
+        <HomePage changePage={this.changePage}/>,
+        <Start changePage={this.changePage}/>, 
+        <BeforeStart changePage={this.changePage}/>,
+        <Sex changePage={this.changePage} saveData={this.saveData}/>,
+        <Age changePage={this.changePage} saveData={this.saveData}/>,
+        <Career changePage={this.changePage} saveData={this.saveData}/>,
+        <Webcam changePage={this.changePage} webcamControl={this.webcamControl} saveData={this.saveData}/>,
+        <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/>,
+        <End test={this.test}/>
+     ];
     return (
       <div className="App">
-        <Header />
-        {/* {this.pages[this.state.pageNum]} */}
-        <Inkblot/>
+        <Header pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage}/>
+        {pages[this.state.pageNum]}
+        {/* <Inkblot/> */}
       </div>
     );
   }

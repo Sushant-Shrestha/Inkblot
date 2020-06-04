@@ -17,8 +17,15 @@ const useStyles = makeStyles(theme => ({
 
 export default function Sex(props) {
     
+    var sex;
+
+    const handleClick = (e) => {
+        sex = e.target.value;
+    }
+
     const click = () => {
-        props.changePage(4);
+        props.saveData('sex', sex, 4);
+        //props.changePage(4);
     }
 
     const classes = useStyles();
@@ -26,11 +33,11 @@ export default function Sex(props) {
         <div className="sexMain">
             <h3 className="sexHeading">Do you identify as</h3>
             <div className="sexForm">
-                <input type="radio" id="male" name="gender" value="male"/>
+                <input type="radio" id="male" name="gender" value="male" onClick={handleClick}/>
                 <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female"/>
+                <input type="radio" id="female" name="gender" value="female" onClick={handleClick}/>
                 <label for="female">Female</label>
-                <input type="radio" id="nonBinary" name="gender" value="nonBinary"/>
+                <input type="radio" id="nonBinary" name="gender" value="nonBinary" onClick={handleClick}/>
                 <label for="nonBinary">Non-Binary</label>
             </div>
             <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>

@@ -25,15 +25,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function Age(props) {
     
+    var age;
+
+    const handleChange = (e) => {
+        age = e.target.value;
+    }
+
     const click = () => {
-        props.changePage(5);
+        props.saveData('age', age, 5);
+        // props.changePage(5);        
     }
 
     const classes = useStyles();
     return(
         <div className={classes.main}>
             <h3 className={classes.heading}>How old are you?</h3>
-            <input type="number" id="age" name="age" max="120" className="ageInput"/><br/>
+            <input type="number" id="age" name="age" max="120" className="ageInput" onChange={handleChange}/><br/>
             <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
         </div>
     )
