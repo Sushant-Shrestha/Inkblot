@@ -2,35 +2,37 @@ const express = require('express');
 const DataModel = require('../models/UserData.js');
 const router = express.Router();
 
-// router.get('/', (req, resp) => {
-//     DataModel.find({}, (err, data) => {
-//         if(err) {
-//             resp.json({ error: "Cannot connect to the server"});
-//         } else {
-//             resp.json(data);
-//         }
-//     });
-// });
+router.get('/all', (req, resp) => {
+    DataModel.find({}, (err, data) => {
+        if(err) {
+            resp.json({ error: "Cannot connect to the server"});
+        } else {
+            resp.json(data);
+        }
+    });
+});
 
 router.post('/', (req, resp) => {
     const newData = {
-        sex: req.body.sex,
-        age: req.body.age,
-        career: req.body.career,
-        webcam: req.body.webcam,
+        sex: req.body.userData.sex,
+        age: req.body.userData.age,
+        career: req.body.userData.career,
+        webcam: req.body.userData.webcam,
         inkblot: {
-            one: req.body.one,
-            two: req.body.two,
-            three: req.body.three,
-            four: req.body.four,
-            five: req.body.five,
-            six: req.body.six,
-            seven: req.body.seven,
-            eight: req.body.eight,
-            nine: req.body.nine,
-            ten: req.body.ten
+            one: req.body.userData.one,
+            two: req.body.userData.two,
+            three: req.body.userData.three,
+            four: req.body.userData.four,
+            five: req.body.userData.five,
+            six: req.body.userData.six,
+            seven: req.body.userData.seven,
+            eight: req.body.userData.eight,
+            nine: req.body.userData.nine,
+            ten: req.body.userData.ten
         }
     }
+
+    console.dir(newData);
 
     DataModel.create(newData, (err, data) => {
         if(err){
