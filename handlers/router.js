@@ -32,8 +32,6 @@ router.post('/', (req, resp) => {
         }
     }
 
-    console.dir(newData);
-
     DataModel.create(newData, (err, data) => {
         if(err){
             resp.json({ error: 'Unable to connect to the server'});
