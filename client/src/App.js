@@ -15,13 +15,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
 
-
 class App extends React.Component {
   constructor(props){
     super(props);
 
     this.state ={
-      pageNum: 0,
+      pageNum: 1,
       currInkblot: 1,
       userData: {
         sex: '',
@@ -66,7 +65,7 @@ class App extends React.Component {
     //this.setState({ [attribute] : data}, () => {console.log(this.state.age)} );
   }
 
-  test = () => {
+  sendInfoToServer = () => {
     // console.dir(this.state.userData);
     const { userData } = this.state;
 
@@ -89,13 +88,14 @@ class App extends React.Component {
         <Career changePage={this.changePage} saveData={this.saveData}/>,
         <Webcam changePage={this.changePage} saveData={this.saveData}/>,
         <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/>,
-        <End test={this.test}/>
+        <End sendToServer={this.sendInfoToServer} data={this.state.userData}/>
      ];
     return (
       <div className="App">
         <Header pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage}/>
         {pages[this.state.pageNum]}
-        {/* <Inkblot/> */}
+        {/* <End data={this.state.userData}/> */}
+        
       </div>
     );
   }

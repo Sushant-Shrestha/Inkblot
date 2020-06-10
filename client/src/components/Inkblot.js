@@ -87,34 +87,11 @@ class Inkblot extends React.Component {
         }
     }
 
-    // handleScriptCreate() {
-    //     console.log("create");
-    // }
-      
-    // handleScriptError() {
-    //     console.log("error");
-    // }
-      
-    // handleScriptLoad() {
-    //     console.log("loaded");
-    // }
-
-
     render(){
         const {classes} = this.props;
 
         return(
             <div className={classes.main}>
-                
-                {/* <Script
-                    url="./webgazer/webgazer"
-                    onCreate={this.handleScriptCreate.bind(this)}
-                    onError={this.handleScriptError.bind(this)}
-                    onLoad={this.handleScriptLoad.bind(this)}
-                >
-            
-                     
-                </Script>                 */}
                 <div className={classes.outerRotate}>
                     <figure className={classes.innerRotate}>
                         <img style={{transform: `rotate(${this.state.imageRotation}deg)`}} className={classes.image} src={require(`./img/blot${this.props.currInkblot}.jpg`)}/>
