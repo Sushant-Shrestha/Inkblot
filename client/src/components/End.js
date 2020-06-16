@@ -45,6 +45,7 @@ export default function End(props) {
     const aboutPage = () => {
         
         props.test();
+        props.changePage(9);
     }
 
     const classes = useStyles();

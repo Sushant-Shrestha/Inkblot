@@ -4,6 +4,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import './styles/sex.css';
+import Circle from '@material-ui/icons/FiberManualRecord';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -12,15 +13,24 @@ const useStyles = makeStyles(theme => ({
         fontStyle: "italic",
         width: "164px",
         fontSize: "12px"
+    },
+    circle: {
+        height: "15px"
+    },
+    progress: {
+        marginTop: "7em"
     }
 }));
 
 export default function Sex(props) {
+
+    const [sex, setSex] = React.useState('');
     
-    var sex;
+    // var sex;
 
     const handleClick = (e) => {
-        sex = e.target.value;
+        // var sex = e.target.value;
+        setSex(e.target.value);
     }
 
     const click = () => {
@@ -32,15 +42,18 @@ export default function Sex(props) {
     return(
         <div className="sexMain">
             <h3 className="sexHeading">Do you identify as</h3>
-            <div className="sexForm">
+            <form className="sexForm">
                 <input type="radio" id="male" name="gender" value="male" onClick={handleClick}/>
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female" onClick={handleClick}/>
                 <label for="female">Female</label>
                 <input type="radio" id="nonBinary" name="gender" value="nonBinary" onClick={handleClick}/>
                 <label for="nonBinary">Non-Binary</label>
+            </form>
+            <Button disabled={!sex} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
+            <div className={classes.progress}>
+                <Circle className={classes.circle} fontSize="small"/> <Circle color="disabled" className={classes.circle} fontSize="small"/> <Circle color="disabled" className={classes.circle} fontSize="small"/>
             </div>
-            <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
         </div>
     )
 }

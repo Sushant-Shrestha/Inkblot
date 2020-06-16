@@ -37,9 +37,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function Webcam(props) {
     
-    const click = () => {
-        props.changePage(7);
-    }
+    // const click = () => {
+    //     props.changePage(7);
+    // }
     
     const dontAccept = () => {
         props.saveData('webcam', false, 7);
@@ -59,9 +59,9 @@ export default function Webcam(props) {
                 <Button variant="outlined" className={classes.button} onClick={accept}>I Accept</Button>
                 
             </div>
-            <footer className={classes.footer}>
+            {/* <footer className={classes.footer}>
                 <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
-            </footer>
+            </footer> */}
         </div>
     )
 }

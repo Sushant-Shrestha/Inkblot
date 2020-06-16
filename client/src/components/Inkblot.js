@@ -55,7 +55,17 @@ class Inkblot extends React.Component {
       super(props);
 
       this.state = {
-          imageRotation: 0
+          imageRotation: 0,
+          one: '',
+          two: '',
+          three: '',
+          four: '',
+          five: '',
+          six: '',
+          seven: '',
+          eight: '',
+          nine: '',
+          ten: ''
       }
     }
 
@@ -63,6 +73,8 @@ class Inkblot extends React.Component {
     data;
     handleChange = (e) => {
         this.data = e.target.value;
+        this.setState({ [this.props.currInkblot]: e.target.value});
+        console.log(this.props.currInkblot + ': ' +this.state[this.props.currInkblot]);
     }
     
 
@@ -100,7 +112,7 @@ class Inkblot extends React.Component {
                 </div>
                 <div className={classes.userInput}>
                     {/* User input */}
-                    <input onChange={this.handleChange} className={classes.input} type="text" id="overall" name="overall" placeholder="What do you see?"/>
+                    <input value={this.state[this.props.currInkblot]} onChange={this.handleChange} className={classes.input} type="text" id="overall" name={this.props.currInkblot} placeholder="What do you see?"/>
                     <CreateIcon /> <PrintOutlinedIcon/> <RotateIcon onClick={this.rotate}/>
                 </div>
                 <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={this.click}>Continue</Button>

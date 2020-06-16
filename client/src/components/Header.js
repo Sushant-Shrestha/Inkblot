@@ -56,7 +56,14 @@ export default function Header(props) {
 
     const previous = () => {
         var currPage = props.pageNum;
-        props.changePage(currPage-1);
+        if(props.currInkblot > 1 && currPage != 8){
+            props.changeInkblot(props.currInkblot-1);
+        } else if(currPage === 8){
+            props.changePage(currPage-1);
+        } else {
+            console.log("heree at " + currPage);
+            props.changePage(currPage-1);
+        }
     }
 
     return(

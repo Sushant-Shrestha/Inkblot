@@ -13,6 +13,7 @@ import End from './components/End';
 import Inkblot from './components/Inkblot';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import About from './components/About';
 
 
 class App extends React.Component {
@@ -48,6 +49,9 @@ class App extends React.Component {
   // webcamControl = (boolean) => {
   //   this.setState({webcam: boolean});
   // }
+  changeInkblotFromHeader = (picNum) => {
+    this.setState({currInkblot: picNum});
+  }
 
   changeInkblot = (attribute, data, picNum) => {
     this.setState({ userData: {
@@ -88,13 +92,14 @@ class App extends React.Component {
         <Career changePage={this.changePage} saveData={this.saveData}/>,
         <Webcam changePage={this.changePage} saveData={this.saveData}/>,
         <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/>,
-        <End sendToServer={this.sendInfoToServer} data={this.state.userData}/>
+        <End sendToServer={this.sendInfoToServer} data={this.state.userData}/>,
+        <About />
      ];
     return (
       <div className="App">
-        <Header pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage}/>
+        <Header pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblotFromHeader}/>
         {pages[this.state.pageNum]}
-        {/* <End data={this.state.userData}/> */}
+        {/* <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/> */}
         
       </div>
     );
