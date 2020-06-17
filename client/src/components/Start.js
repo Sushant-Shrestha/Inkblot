@@ -9,7 +9,90 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "0",
         fontSize: "12px",
         fontStyle: "italic",
-        textTransform: 'none'
+        textTransform: 'none',
+        '&:hover': {
+            border: 'none',
+            color: 'white',
+            // background: 'linear-gradient(to right, #ffffff 50%, #FABDFF, #AC8EFF)',
+            background: 'linear-gradient(to right, #FABDFF, #AC8EFF, #ffffff 50%)',
+            animation: `$gradient 1s linear forwards`,
+            backgroundSize: '300% 300%'
+        },
+        '&:focus': {
+            border: 'none',
+            color: 'white',
+            // background: 'linear-gradient(to right, #ffffff 50%, #FABDFF, #AC8EFF)',
+            background: 'linear-gradient(to right, #FABDFF, #AC8EFF,#ffffff 50%)',
+            animation: `$gradient 1s linear forwards`,
+            backgroundSize: '300% 300%'
+        }
+    },
+    '@keyframes gradient': {
+        "0%": {
+            backgroundPosition: "right"
+        },
+        "100%": {
+            backgroundPosition: "left"
+        }
+        // transition: '1s all',
+        
+        // backgroundPosition: '100% 50%',
+/*
+        // background: 'linear-gradient(to right,#FABDFF 0 calc(10% - 10px),#AC8EFF 0 calc(30% - 10px),#AC8EFF calc(50% - 10px) calc(50% + 10px),#ffffff calc(50% + 10px) 100% )',
+
+        '&:hover': {
+            border: 'none',
+            // background: 'linear-gradient(to right, #FABDFF 9.17%, #AC8EFF 101.17%, #ffffff 100%)',
+            
+            animation: `$gradient linear 0.8s forwards`,
+            // backgroundPosition: '-100% -150%',
+            // transition: '1s all'
+        },
+        '&:focus': {
+            border: 'none',
+            // background: 'linear-gradient(to right, #FABDFF 9.17%, #AC8EFF 101.17%, #ffffff 100%)',
+            
+            animation: `$gradient linear 0.8s forwards`,
+            // backgroundPosition: '-100% -150%',
+            // transition: '1s all'
+        }
+    },
+    '@keyframes gradient': {
+        "0%": {
+            background: 'linear-gradient(to right, #ffffff 100%)'
+        },
+        "10%": {
+            background: 'linear-gradient(to right, #FABDFF 1%, #AC8EFF 9%, #ffffff 90%)'
+        },
+        "20%": {
+            background: 'linear-gradient(to right, #FABDFF 2%, #AC8EFF 18%, #ffffff 80%)'
+        },
+        "30%": {
+            background: 'linear-gradient(to right, #FABDFF 3%, #AC8EFF 27%, #ffffff 70%)'
+        },
+        "40%": {
+            background: 'linear-gradient(to right, #FABDFF 4%, #AC8EFF 36%, #ffffff 60%)'
+        },
+        "50%": {
+            background: 'linear-gradient(to right, #FABDFF 5%, #AC8EFF 45%, #ffffff 50%)'
+        },
+        "60%": {
+            background: 'linear-gradient(to right, #FABDFF 6%, #AC8EFF 54%, #ffffff 40%)'
+        },
+        "70%": {
+            background: 'linear-gradient(to right, #FABDFF 7%, #AC8EFF 63%, #ffffff 30%)'
+        },
+        "80%": {
+            background: 'linear-gradient(to right, #FABDFF 8%, #AC8EFF 72%, #ffffff 20%)'
+        },
+        "90%": {
+            background: 'linear-gradient(to right, #FABDFF 9%, #AC8EFF 81%, #ffffff 10%)'
+        },
+        '100%': {
+            background: 'linear-gradient(to right, #FABDFF 10%, #AC8EFF 101.17%)'
+        }
+        */
+       
     },
     main: {
         margin: "8em 25em 0 0"

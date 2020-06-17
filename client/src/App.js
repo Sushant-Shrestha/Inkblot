@@ -40,37 +40,44 @@ class App extends React.Component {
         ten: ''
       }
     }
+    
+    this.baseState = this.state;
+  }
+
+  restartApp = () => {
+
+    this.setState(this.baseState);
   }
 
   changePage = (num) => {
+
     this.setState({pageNum: num});
   }
 
-  // webcamControl = (boolean) => {
-  //   this.setState({webcam: boolean});
-  // }
   changeInkblotFromHeader = (picNum) => {
+    
     this.setState({currInkblot: picNum});
   }
 
+  //change inkblot from the Inkblot Page
   changeInkblot = (attribute, data, picNum) => {
+
     this.setState({ userData: {
       ...this.state.userData, [attribute]: data
     }}, () => {this.setState({currInkblot: picNum})});
     
   }
 
+  //saves data into any given state and changes pages
   saveData = (attribute, data, nextPage) => {
-    //let {userData} = this.state;
+
     this.setState({ userData: {
       ...this.state.userData, [attribute]: data
     }}, () => {this.changePage(nextPage)});
-
-    //this.setState({ [attribute] : data}, () => {console.log(this.state.age)} );
   }
 
   sendInfoToServer = () => {
-    // console.dir(this.state.userData);
+
     const { userData } = this.state;
 
     axios({
@@ -97,7 +104,7 @@ class App extends React.Component {
      ];
     return (
       <div className="App">
-        <Header pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblotFromHeader}/>
+        <Header restartApp={this.restartApp} pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblotFromHeader}/>
         {pages[this.state.pageNum]}
         {/* <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/> */}
         

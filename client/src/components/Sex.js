@@ -25,17 +25,15 @@ const useStyles = makeStyles(theme => ({
 export default function Sex(props) {
 
     const [sex, setSex] = React.useState('');
-    
-    // var sex;
 
     const handleClick = (e) => {
-        // var sex = e.target.value;
+        
         setSex(e.target.value);
     }
 
     const click = () => {
+        
         props.saveData('sex', sex, 4);
-        //props.changePage(4);
     }
 
     const classes = useStyles();

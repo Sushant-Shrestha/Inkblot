@@ -66,6 +66,10 @@ export default function Header(props) {
         }
     }
 
+    const homePage = () => {
+        props.changePage(1);
+    }
+
     return(
         <div className={classes.header}>
             <div className={hidden} style={{
@@ -74,14 +78,14 @@ export default function Header(props) {
             <Button variant="outlined" className={classes.button,classes.prev} startIcon={<ArrowBackwardIcon/>} onClick={previous}>Previous</Button>
             </div>
             <div className={classes.mid}>
-                <h3>Rorscarch Test</h3>
+                <h3 onClick={homePage}>Rorscarch Test</h3>
                 {currPageDesc}
             </div>
             <div className={classes.right}>
                 <p style={{
                 marginRight: '50px'
                 }}>About</p>
-                <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>}>Start Analysis</Button>
+                <Button onClick={props.restartApp} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>}>Start Analysis</Button>
             </div>
         </div>
     )
