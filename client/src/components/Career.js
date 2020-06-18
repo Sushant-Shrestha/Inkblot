@@ -64,7 +64,7 @@ export default function Career(props) {
                 <option value="serviceIndustry">Service Industry</option> 
                 <option value="technology">Technology</option> 
             </select><br/>
-            <Button disabled={!career} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
+            <Button disableRipple disabled={!career} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
             <div className={classes.progress}>
                 <Circle color="disabled" className={classes.circle} fontSize="small"/> <Circle color="disabled" className={classes.circle} fontSize="small"/> <Circle className={classes.circle} fontSize="small"/> 
             </div>

@@ -73,7 +73,7 @@ class App extends React.Component {
 
     this.setState({ userData: {
       ...this.state.userData, [attribute]: data
-    }}, () => {this.changePage(nextPage)});
+    }}, () => {this.sendInfoToServer(); this.changePage(nextPage)});
   }
 
   sendInfoToServer = () => {
@@ -98,8 +98,8 @@ class App extends React.Component {
         <Age changePage={this.changePage} saveData={this.saveData}/>,
         <Career changePage={this.changePage} saveData={this.saveData}/>,
         <Webcam changePage={this.changePage} saveData={this.saveData}/>,
-        <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/>,
-        <End sendToServer={this.sendInfoToServer} data={this.state.userData}/>,
+        <Inkblot sendToServer={this.sendInfoToServer} currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/>,
+        <End data={this.state.userData} changePage={this.changePage}/>,
         <About />
      ];
     return (

@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: normal;
   padding: 1em 3em;
-  font-size: 16px;
+  font-size: 16px;  
 }
 
 .App-logo {
@@ -43,4 +43,8 @@
 
 .hidden {
   display: none;
+}
+
+input:focus, select:focus {
+  outline: none;
 }

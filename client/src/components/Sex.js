@@ -48,7 +48,7 @@ export default function Sex(props) {
                 <input type="radio" id="nonBinary" name="gender" value="nonBinary" onClick={handleClick}/>
                 <label for="nonBinary">Non-Binary</label>
             </form>
-            <Button disabled={!sex} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
+            <Button disableRipple disabled={!sex} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
             <div className={classes.progress}>
                 <Circle className={classes.circle} fontSize="small"/> <Circle color="disabled" className={classes.circle} fontSize="small"/> <Circle color="disabled" className={classes.circle} fontSize="small"/>
             </div>

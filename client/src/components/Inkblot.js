@@ -67,24 +67,28 @@ class Inkblot extends React.Component {
           nine: '',
           ten: ''
       }
+      
     }
 
+    
+
     inkblot = [ 'zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+    
+    
     data;
     handleChange = (e) => {
-        this.data = e.target.value;
-        this.setState({ [this.props.currInkblot]: e.target.value});
-        console.log(this.props.currInkblot + ': ' +this.state[this.props.currInkblot]);
+        const currInkblot = this.inkblot[this.props.currInkblot];
+        this.setState({ [currInkblot]: e.target.value});
     }
     
 
     click = () => {
         let temp = this.props.currInkblot;
-
+        const currInkblot = this.inkblot[this.props.currInkblot];
         if(temp < 10) {        
-            this.props.changeInkblot(this.inkblot[this.props.currInkblot], this.data,temp+1);
+            this.props.changeInkblot(currInkblot, this.state[currInkblot],temp+1);
         } else {
-            this.props.saveData(this.inkblot[this.props.currInkblot], this.data, 8);
+            this.props.saveData(currInkblot, this.state[currInkblot], 8);
             //this.props.changePage(8);
         }        
     }
@@ -112,10 +116,10 @@ class Inkblot extends React.Component {
                 </div>
                 <div className={classes.userInput}>
                     {/* User input */}
-                    <input value={this.state[this.props.currInkblot]} onChange={this.handleChange} className={classes.input} type="text" id="overall" name={this.props.currInkblot} placeholder="What do you see?"/>
+                    <input value={this.state[this.inkblot[this.props.currInkblot]]} onChange={this.handleChange} className={classes.input} type="text" id="overall" name={this.props.currInkblot} placeholder="What do you see?"/>
                     <CreateIcon /> <PrintOutlinedIcon/> <RotateIcon onClick={this.rotate}/>
                 </div>
-                <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={this.click}>Continue</Button>
+                <Button disableRipple variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={this.click}>Continue</Button>
             </div>
         )
     }

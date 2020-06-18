@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
     content: {
         textAlign: "left",
         width: "460px",
-        margin: "0 auto 5em"
+        margin: "0 auto 5em",
+        lineHeight: '183%'
     },
     button: {
         borderRadius: "0",
@@ -44,7 +45,6 @@ export default function End(props) {
     
     const aboutPage = () => {
         
-        props.test();
         props.changePage(9);
     }
 
@@ -81,7 +81,7 @@ export default function End(props) {
             <h3 className={classes.heading}>You’ve completed the Rorscach Test</h3>
             <div className={classes.icons}><PrintOutlinedIcon onClick={handlePrint} style={{marginRight: "0.5em"}}/> <SaveAltIcon onClick={save}/></div>
             <p className={classes.content}>Like art, the Rorscach test is made to behave in ambiguity. It is up to the interpreter to understand what the inkblots mean to them and what parts of the unconscious they use to make decisions. We have provided the measurements to your test, it is to you to decide who you are.</p>
-            <Button variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={aboutPage}>About Rorscach</Button>
+            <Button disableRipple variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={aboutPage}>About Rorscach</Button>
             <div className='hidden'>
                 <PDF data={props.data} ref={pdfRef}/>
             </div>

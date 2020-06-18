@@ -32,6 +32,17 @@ const useStyles = makeStyles(theme => ({
     },
     desc: {
         color: "#858585"
+    },
+    about: {
+        marginRight: '50px',
+        '&:hover':{
+            cursor: 'pointer'
+        }
+    },
+    home: {
+        '&:hover':{
+            cursor: 'pointer'
+        }
     }
 }));
 
@@ -61,7 +72,6 @@ export default function Header(props) {
         } else if(currPage === 8){
             props.changePage(currPage-1);
         } else {
-            console.log("heree at " + currPage);
             props.changePage(currPage-1);
         }
     }
@@ -70,22 +80,24 @@ export default function Header(props) {
         props.changePage(1);
     }
 
+    const aboutPage = () => {
+        props.changePage(9);
+    }
+
     return(
         <div className={classes.header}>
             <div className={hidden} style={{
                 marginRight: '7.5em'
                 }}>
-            <Button variant="outlined" className={classes.button,classes.prev} startIcon={<ArrowBackwardIcon/>} onClick={previous}>Previous</Button>
+            <Button disableRipple variant="outlined" className={classes.button,classes.prev} startIcon={<ArrowBackwardIcon/>} onClick={previous}>Previous</Button>
             </div>
             <div className={classes.mid}>
-                <h3 onClick={homePage}>Rorscarch Test</h3>
+                <h3 className={classes.home} onClick={homePage}>Rorscarch Test</h3>
                 {currPageDesc}
             </div>
             <div className={classes.right}>
-                <p style={{
-                marginRight: '50px'
-                }}>About</p>
-                <Button onClick={props.restartApp} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>}>Start Analysis</Button>
+                <p className={classes.about} onClick={aboutPage}>About</p>
+                <Button disableRipple onClick={props.restartApp} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>}>Start Analysis</Button>
             </div>
         </div>
     )

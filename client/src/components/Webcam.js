@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         width: "475px",
-        margin: "0 auto 5em"
+        margin: "0 auto 5em",
+        lineHeight: '183%'
     },
     button: {
         borderRadius: "0",
@@ -55,8 +56,8 @@ export default function Webcam(props) {
             <div className={classes.main}>
                 <h3 className={classes.heading}>Webcam Access <QuestionIcon className={classes.icon}/></h3>
                 <p className={classes.content}>We use eye tracking technology for you to better understand what you pay attention to with these inkblots. This technology needs one-time access to the webcam. If accepted, we can better understand what influences your decisions and how your mind interprets what is in front of you. No worries, the test can still be done without eye tracking.</p>
-                <Button variant="outlined" className={classes.button} onClick={dontAccept}>I don't accept</Button>
-                <Button variant="outlined" className={classes.button} onClick={accept}>I Accept</Button>
+                <Button disableRipple variant="outlined" className={classes.button} onClick={dontAccept}>I don't accept</Button>
+                <Button disableRipple variant="outlined" className={classes.button} onClick={accept}>I Accept</Button>
                 
             </div>
             {/* <footer className={classes.footer}>

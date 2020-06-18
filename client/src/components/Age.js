@@ -50,7 +50,7 @@ export default function Age(props) {
         <div className={classes.main}>
             <h3 className={classes.heading}>How old are you?</h3>
             <input type="number" id="age" name="age" max="120" className="ageInput" onChange={handleChange}/><br/>
-            <Button disabled={!age} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
+            <Button disableRipple disabled={!age} variant="outlined" className={classes.button} endIcon={<ArrowForwardIcon/>} onClick={click}>Next</Button>
             <div className={classes.progress}>
                 <Circle color="disabled" className={classes.circle} fontSize="small"/> <Circle className={classes.circle} fontSize="small"/> <Circle color="disabled" className={classes.circle} fontSize="small"/>
             </div>

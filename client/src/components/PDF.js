@@ -42,7 +42,7 @@ class PDF extends React.Component {
                 <h1 className={classes.heading}>Inkblot test for pyscho analysis</h1>
                 {inkblot.map((blot,index)=> {
                     return (
-                        <div>
+                        <div key={index}>
                             <div className={classes.list}> 
                                 <img className={classes.image} src={require(`./img/blot${index+1}.jpg`)} />
                                 {/* <p>{this.props.data[blot]}</p> */}
