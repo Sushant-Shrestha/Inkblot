@@ -14,6 +14,7 @@ import Inkblot from './components/Inkblot';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import About from './components/About';
+import CircleInput from './components/CircleInput';
 
 
 class App extends React.Component {
@@ -106,7 +107,7 @@ class App extends React.Component {
       <div className="App">
         <Header restartApp={this.restartApp} pageNum={this.state.pageNum} currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblotFromHeader}/>
         {pages[this.state.pageNum]}
-        {/* <Inkblot currInkblot={this.state.currInkblot} changePage={this.changePage} changeInkblot={this.changeInkblot} saveData={this.saveData}/> */}
+        {/* <About/> */}
         
       </div>
     );

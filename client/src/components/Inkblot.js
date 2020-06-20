@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PrintOutlinedIcon from '@material-ui/icons/PrintOutlined';
 import CreateIcon from '@material-ui/icons/Create';
 import RotateIcon from '@material-ui/icons/Autorenew';
+import CircleInput from './CircleInput';
 
 const useStyles = theme => ({
     button: {
@@ -65,22 +66,34 @@ class Inkblot extends React.Component {
           seven: '',
           eight: '',
           nine: '',
-          ten: ''
-      }
-      
-    }
-
-    
+          ten: '',
+          hidden: true,
+          x: '',
+          y: ''
+      }      
+    }    
 
     inkblot = [ 'zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
     
-    
-    data;
     handleChange = (e) => {
         const currInkblot = this.inkblot[this.props.currInkblot];
         this.setState({ [currInkblot]: e.target.value});
     }
     
+    onMouseClick = (e) => {
+        var xCord = e.nativeEvent.offsetX;
+        var yCord = e.nativeEvent.offsetY;
+        
+        this.setState({
+            x: xCord,
+            y: yCord
+        })
+        // this.toggleHidden();
+    }
+
+    toggleHidden = () => {
+        this.setState({hidden: !this.state.hidden});
+    }
 
     click = () => {
         let temp = this.props.currInkblot;
@@ -110,8 +123,8 @@ class Inkblot extends React.Component {
             <div className={classes.main}>
                 <div className={classes.outerRotate}>
                     <figure className={classes.innerRotate}>
-                        <img style={{transform: `rotate(${this.state.imageRotation}deg)`}} className={classes.image} src={require(`./img/blot${this.props.currInkblot}.jpg`)}/>
-                        
+                        <img onClick={this.onMouseClick} style={{transform: `rotate(${this.state.imageRotation}deg)`}} className={classes.image} src={require(`./img/blot${this.props.currInkblot}.jpg`)}/>
+                        {/* {!this.state.hidden && <CircleInput style={{ position: 'absolute', left: this.state.x, top: this.state.y }}/>} */}
                     </figure>
                 </div>
                 <div className={classes.userInput}>

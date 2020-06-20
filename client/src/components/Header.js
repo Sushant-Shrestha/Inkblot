@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     home: {
+        fontWeight: 'normal',
         '&:hover':{
             cursor: 'pointer'
         }
